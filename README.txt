@@ -19,8 +19,8 @@ The non-standard barcodes are not parsed for the moment.
 ParserIO is delivered under the GNU Lesser General Public License.
 
 -----------------------------------------------------------------------
-For more information, please consult the ParserIO web site at
-https://github.com/reseauphast/ParserIO
+For more information, please consult the ParserIO repository at
+https://github.com/phast-fr/ParserIO
 
 -----------------------------------------------------------------------
 You should have received a copy of the GNU Lesser General Public
@@ -28,4 +28,4 @@ License along with this library; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 -----------------------------------------------------------------------
-Copyright (c) 2009-2022, Association Réseau Phast,  http://www.phast.fr
+Copyright (c) 2009-2023, Association Réseau Phast,  http://www.phast.fr

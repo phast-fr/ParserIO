@@ -168,7 +168,38 @@ namespace ParserIO.Core
             }
 
             //convert 2 digits year to 4 digits year
-            dt = DateTime.ParseExact(String.Format("{0:00}", y), "yy", CultureInfo.CurrentUICulture);
+
+            //Implementer la règle
+
+            int currentYear = DateTime.Now.Year;
+            
+            int intLeftCurrentYear = currentYear / 100;
+            int intRightCurrentYear = currentYear % 100;
+
+            int r = y - intRightCurrentYear;
+
+            // Cela n'est pas vraiment le siécle mais cela reste compréhensible
+            int century;
+
+            if(r >= 51 & r <= 99)
+            {
+                //Previous century
+                century = intLeftCurrentYear - 1;
+            }
+            else if(r >= -99 & r <= -50)
+            {
+                //Next century
+                century = intLeftCurrentYear + 1;
+            }
+            else
+            {
+                //Current century
+                century = intLeftCurrentYear;
+            }
+
+            string stringCentury = century.ToString() + intRightCurrentYear.ToString();
+            dt = DateTime.ParseExact(stringCentury, "yyyy", CultureInfo.CurrentUICulture);
+
             y = dt.Year;
 
             if (0 == y)

@@ -4,7 +4,7 @@
   <description asmv2:iconFile="logo_parserio_2016_Q6X_icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="ParserIO.WinFormsApp" version="2.3.8165.27495" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="ParserIO.WinFormsApp" version="2.3.8587.21926" language="neutral" processorArchitecture="msil" />
     <commandLine file="ParserIO.WinFormsApp.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -44,37 +44,37 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ParserIO.Core.dll" size="27648">
-      <assemblyIdentity name="ParserIO.Core" version="2.8.8165.27495" publicKeyToken="00870EF5068C9FC8" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="ParserIO.Core" version="2.8.8587.21925" publicKeyToken="00870EF5068C9FC8" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>e39rJiKrFOweM8RBlWBOl4jP55Ai9iTxGi8OSE+H/PI=</dsig:DigestValue>
+        <dsig:DigestValue>dTvJhdc6zN0O2/Z74GPUFDvKGct+2V0u3Z4X9uflIbE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ParserIO.DAO.dll" size="16896">
-      <assemblyIdentity name="ParserIO.DAO" version="1.3.8165.27495" publicKeyToken="54E9F948F0E9E8A2" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="ParserIO.DAO" version="1.3.8587.21925" publicKeyToken="54E9F948F0E9E8A2" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>VQjJG28QcaEdMIrMbUYonzSph0I3/cGJe85mEKvK/0M=</dsig:DigestValue>
+        <dsig:DigestValue>xoBLlRLUnhrRimhmm3eQwnHOR/J/rDIlsvucvESvom8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ParserIO.WinFormsApp.exe" size="176640">
-      <assemblyIdentity name="ParserIO.WinFormsApp" version="2.3.8165.27495" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="ParserIO.WinFormsApp" version="2.3.8587.21926" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>++XSDr2+n7e/W4ohG1lnAGpsm/YyuZ7jsfr1VbZt0TA=</dsig:DigestValue>
+        <dsig:DigestValue>a7JPSHA7mj/rN/dZL1W12tzDz8pKY+17r0arPkiTGw8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

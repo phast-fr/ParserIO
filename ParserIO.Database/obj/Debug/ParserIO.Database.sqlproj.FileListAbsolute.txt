@@ -7,3 +7,4 @@ C:\_Workspaces\ParserIO\ParserIO.Database\obj\Debug\postdeploy.sql
 C:\_Workspaces\ParserIO\ParserIO.Database\obj\Debug\predeploy.sql
 C:\_Workspaces\ParserIO\ParserIO.Database\obj\Debug\ParserIO.Database.dll
 C:\_Workspaces\ParserIO\ParserIO.Database\obj\Debug\ParserIO.Database.pdb
+C:\_Workspaces\ParserIO\ParserIO.Database\obj\Debug\ParserIO.Database.sqlproj.AssemblyReference.cache

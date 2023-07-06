@@ -1,4 +1,4 @@
 ﻿  stdafx.cpp
   test.cpp
+C:\_Workspaces\ParserIO\ParserIO_COMclient\test.cpp(33,1): fatal error C1083: Impossible d'ouvrir le fichier bibliothèque de types : 'ParserIO.Core.tlb' : No such file or directory
   Génération de code en cours...
-  test.vcxproj -> C:\_Workspaces\ParserIO\Debug\ParserIO_COMclient.exe

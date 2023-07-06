@@ -137,7 +137,7 @@
             this.textBoxDescription.Size = new System.Drawing.Size(271, 90);
             this.textBoxDescription.TabIndex = 23;
             this.textBoxDescription.TabStop = false;
-            this.textBoxDescription.Text = "https://github.com/reseauphast/ParserIO";
+            this.textBoxDescription.Text = "https://github.com/phast-fr/ParserIO";
             // 
             // okButton
             // 
