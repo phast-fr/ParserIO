@@ -197,7 +197,7 @@ namespace ParserIO.Core
                 century = intLeftCurrentYear;
             }
 
-            string stringCentury = century.ToString() + intRightCurrentYear.ToString();
+            string stringCentury = century.ToString() + y.ToString("00");
             dt = DateTime.ParseExact(stringCentury, "yyyy", CultureInfo.CurrentUICulture);
 
             y = dt.Year;
@@ -896,21 +896,21 @@ namespace ParserIO.Core
             }
             else if (InfoSet.Type == "NaS")
             {
-                if (/*InfoSet.SubType == "001" |*/ InfoSet.SubType == "004")
+                if (InfoSet.SubType == "002" | InfoSet.SubType == "003")
+                {
+                    result.Add(new Identifier { Value = InfoSet.ACL });
+                }
+                else if (InfoSet.SubType == "004")
                 {
                     result.Add(new Identifier { Value = InfoSet.UDI });
                 }
-                else if (InfoSet.SubType == "002" | InfoSet.SubType == "003")
+                else if (InfoSet.SubType == "005")
                 {
-                    result.Add(new Identifier { Value = InfoSet.ACL });
+                    result.Add(new Identifier { Value = InfoSet.Reference });
                 }
                 else if (InfoSet.SubType == "NaS7")
                 {
                     result.Add(new Identifier { Value = InfoSet.NaS7 });
-                }
-                else
-                {
-                    result.Add(new Identifier { Value = InfoSet.Reference });
                 }
             }
             return result;

@@ -13,11 +13,11 @@ namespace ParserIO.Benchmark.Compare
     {
         static void Main(string[] args)
         {
-            string workingFolder = "C:\\ParserIO\\";
+            string workingFolder = @"C:\_Phast\tools\ParserIO\";
             string dateTime = DateTime.Now.ToString("yyyymmddhhmmss");
 
-            string masterFileName = workingFolder + "Barcodestore_master_20220510111348.xml";
-            string sourceFileName = workingFolder + "Barcodestore_dll_20221610111635.xml";
+            string masterFileName = workingFolder + "Barcodestore_master_20230817143800.xml";
+            string sourceFileName = workingFolder + "Barcodestore_dll_20234917024956.xml";
 
             string outputFileName = workingFolder + "BenchmarkCompare_" + dateTime +".txt";
 

@@ -28,11 +28,13 @@ namespace ParserIO.Benchmark
         static void Main(string[] args)
         {
 
+            DateTime dt = DateTime.Now;
+
             Provider value = Provider.dll;
             string workingFolder = @"C:\_Phast\tools\ParserIO\";
-            string sourceFileName = workingFolder + "Barcodestore_master_20220510112057.xml";
+            string sourceFileName = workingFolder + "Barcodestore_master_20230817143800.xml";
 
-            string outputFileName = workingFolder + "Barcodestore_" + value + "_"+ DateTime.Now.ToString("yyyymmddhhmmss") + ".xml";
+            string outputFileName = workingFolder + "Barcodestore_" + value + "_"+ dt.ToString("yyyymmddhhmmss") + ".xml";
 
             StreamReader source;
             XmlDocument document;
@@ -42,7 +44,7 @@ namespace ParserIO.Benchmark
             document.Load(source);
 
             DAO.Barcodestore bcs = new DAO.Barcodestore();
-            bcs.Version = DateTime.Now.ToString("yyyymmddhhmm");
+            bcs.Version = dt.ToString("yyyymmddhhmmss");
             bcs.ProviderName = value.ToString();
             bcs.Analyses = new List<DAO.Analyse>();
             
@@ -139,7 +141,6 @@ namespace ParserIO.Benchmark
                 Console.WriteLine(x.AnalyseId);
             }
 
-            
             using (StreamWriter myWriter = new StreamWriter(outputFileName, false))
             {
                 XmlSerializer mySerializer = new XmlSerializer(typeof(DAO.Barcodestore), new XmlRootAttribute("Barcodestore"));
