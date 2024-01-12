@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:Phast/ParserIO" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="urn:Phast/ParserIO" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ParserIO</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:Phast/ParserIO">
+      <s:element name="GetFullInformationSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Request" type="tns:InformationSetRequestType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InformationSetRequestType">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BasicRequestType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BasicRequestType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PinCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFullInformationSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFullInformationSetResult" type="tns:InformationSetResponseType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InformationSetResponseType">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BasicResponseType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="InformationSet" type="tns:InformationSet" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BasicResponseType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DureeExecution" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExecuteResult" type="tns:Results" />
+          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="Results">
+        <s:restriction base="s:string">
+          <s:enumeration value="GeneralError" />
+          <s:enumeration value="Ok" />
+          <s:enumeration value="RMInvalidLogin" />
+          <s:enumeration value="RMNoPermission" />
+          <s:enumeration value="RMInvalidLicence" />
+          <s:enumeration value="SqlDataError" />
+          <s:enumeration value="ConfigurationError" />
+          <s:enumeration value="NotImplemented" />
+          <s:enumeration value="InvalideParameter" />
+          <s:enumeration value="NotAvailable" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="InformationSet">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="InputCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ACL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDITIONALID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BESTBEFORE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CIP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContainsOrMayContainId" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CONTENT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="COUNT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUSTPARTNO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EAN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Expiry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Family" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GTIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INTERNAL_90" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INTERNAL_91" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INTERNAL_92" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INTERNAL_93" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INTERNAL_94" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INTERNAL_95" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INTERNAL_96" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INTERNAL_97" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INTERNAL_98" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INTERNAL_99" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LIC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lot" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LPP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NaS7" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NormalizedBESTBEFORE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NormalizedExpiry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NormalizedPRODDATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PCN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRODDATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Quantity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NaSIdParamName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Serial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SSCC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StorageLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SymbologyID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SymbologyIDDesignation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UDI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UoM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UPN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VARCOUNT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VARIANT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalInformation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Identifiers" type="tns:ArrayOfIdentifier" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParserIOVersion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UDI_DI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Issuer" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfIdentifier">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Identifier" nillable="true" type="tns:Identifier" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Identifier">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetFullInformationSetSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFullInformationSet" />
+  </wsdl:message>
+  <wsdl:message name="GetFullInformationSetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFullInformationSetResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ParserIOSoap">
+    <wsdl:operation name="GetFullInformationSet">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Takes a barcode value as input and returns a full set of information as object</wsdl:documentation>
+      <wsdl:input message="tns:GetFullInformationSetSoapIn" />
+      <wsdl:output message="tns:GetFullInformationSetSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ParserIOSoap" type="tns:ParserIOSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFullInformationSet">
+      <soap:operation soapAction="urn:Phast/ParserIO/GetFullInformationSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ParserIOSoap12" type="tns:ParserIOSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFullInformationSet">
+      <soap12:operation soapAction="urn:Phast/ParserIO/GetFullInformationSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ParserIO">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ParserIO</wsdl:documentation>
+    <wsdl:port name="ParserIOSoap" binding="tns:ParserIOSoap">
+      <soap:address location="https://services.phast.fr/ParserIO.LegacyWS/parserio.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ParserIOSoap12" binding="tns:ParserIOSoap12">
+      <soap12:address location="https://services.phast.fr/ParserIO.LegacyWS/parserio.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ParserIO.Benchmark.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ParserIO_Benchmark_ParserIO_WS_ParserIO" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://services.phast.fr/ParserIO.LegacyWS/parserio.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

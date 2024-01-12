@@ -32,11 +32,38 @@ namespace ParserIO.Tools
                 Variance v = new Variance();
                 v.analyseId = analyseId;
                 v.propertyName = f.Name;
-                v.masterValue = f.GetValue(master);
-                v.checkedValue = f.GetValue(toCheck);
-                if (!v.masterValue.Equals(v.checkedValue))
-                    variances.Add(v);
 
+                if (f.Name == "Identifiers")
+                {
+                    List<DAO.Identifier> masterList = (List<DAO.Identifier>)f.GetValue(master);
+                    List<DAO.Identifier> toCheckList = (List<DAO.Identifier>)f.GetValue(toCheck);
+
+                    if (masterList.Count != toCheckList.Count)
+                    {
+                        variances.Add(v);
+                    }
+                    else
+                    {
+                        for (int i=0; i <masterList.Count; i++)
+                        {
+                            if (masterList[i].Value != toCheckList[i].Value)
+                            {
+                                v.masterValue = masterList[i].Value;
+                                v.checkedValue = toCheckList[i].Value;
+                                variances.Add(v);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    
+                    v.masterValue = f.GetValue(master);
+                    v.checkedValue = f.GetValue(toCheck);
+                    if (!v.masterValue.Equals(v.checkedValue))
+                        variances.Add(v);
+
+                }
             }
             return variances;
         }

@@ -407,27 +407,34 @@ namespace ParserIO.Core
                 result = "GS";
             else if (code.Contains("@"))
                 result = "@";
-            else if (code.Contains("[GS]"))
-                result = "[GS]";
+            //else if (code.Contains("[GS]"))
+            //    result = "[GS]";
+            //else if (code.Contains("\\u001d"))
+            //    result = "\u001d";
             return result;
         }
         private static int indexOfGS(string code, int start)
         {
             int result = -1;
-            string GSchar = getGStype(code);
-            if (GSchar == "GS")
-            {
-                result = code.IndexOf(NonPrintableGS, start);
-            }
-            else if (GSchar == "@")
-            {
-                result = code.IndexOf("@", start);
-            }
-            else if (GSchar == "[GS]")
-            {
-                result = code.IndexOf("[GS]", start);
-            }
-
+            //string GSchar = getGStype(code);
+            //if (GSchar == "GS")
+            //{
+            //    result = code.IndexOf(NonPrintableGS, start);
+            //}
+            //else if (GSchar == "@")
+            //{
+            //    result = code.IndexOf("@", start);
+            //}
+            //else if (GSchar == "[GS]")
+            //{
+            //    result = code.IndexOf("[GS]", start);
+            //}
+            //else if (GSchar == "\u001d")
+            //{
+            //    result = code.IndexOf("\\u001d", start);
+            //}
+            
+            result = code.IndexOf("@", start);
 
             return result;
         }
@@ -456,6 +463,15 @@ namespace ParserIO.Core
             string result = code;
             if (containsSymbologyId(code))
                 result = result.Substring(3, result.Length - 3);
+            return result;
+        }
+
+        private static string AdjustGS(string code)
+        {
+            string result = code.Replace("\\u001d", "@")        //HTML Unicode
+                                .Replace("[GS]", "@")           //I think this pattern doesn't exist
+                                .Replace(NonPrintableGS, "@");  //ASCI 29 decimal, 1D hex
+            
             return result;
         }
         public string SymbologyID(string code)
@@ -2038,6 +2054,7 @@ namespace ParserIO.Core
             result.SymbologyID = SymbologyID(code);
             result.SymbologyIDDesignation = SymbologyIDDesignation(result.SymbologyID);
             code = CleanSymbologyId(code);
+            code = AdjustGS(code);
 
             Parse(code);
 
