@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Collections.Generic;
 
-[assembly: AssemblyKeyFile("ParserIO.Core.snk")]
+//[assembly: AssemblyKeyFile("ParserIO.Core.snk")]
 namespace ParserIO.Core
 {
 
@@ -315,7 +315,7 @@ namespace ParserIO.Core
                         // MMDDYY
                         typeDate = 2;
                     }
-                    else if ((subType.Contains("$$.3") | (subType.Contains("$$.8.3"))))
+                    else if (subType.Contains("$$.3") | subType.Contains("$$+.3") | subType.Contains("$$.8.3") | subType.Contains("$$+.8.3"))
                     {
                         // YYMMDD
                         typeDate = 3;
@@ -470,8 +470,8 @@ namespace ParserIO.Core
         {
             string result = code.Replace("\\u001d", "@")        //HTML Unicode
                                 .Replace("[GS]", "@")           //I think this pattern doesn't exist
-                                .Replace(NonPrintableGS, "@");  //ASCI 29 decimal, 1D hex
-            
+                                .Replace(NonPrintableGS, "@");   //ASCI 29 decimal, 1D hex
+                                //.Replace("]", "@");             // Commit Vivalto Loig Merivain
             return result;
         }
         public string SymbologyID(string code)
@@ -1505,15 +1505,16 @@ namespace ParserIO.Core
                                     result.SubType = result.SubType + ".L";
                                     result.StorageLocation = item.Substring(1, endData - 1);
                                 }
+                                else if (asd1 == "Q")
+                                {
+                                    result.SubType = result.SubType + ".Q";
+                                    result.Quantity = item.Substring(1, endData - 1);
+                                }
                                 else if (asd1 == "S")
                                 {
                                     result.SubType = result.SubType + ".S";
                                     result.Serial = item.Substring(1, endData - 1);
                                 }
-                                //else if(asd2 == "1N")
-                                //{
-
-                                //}
                                 else if (asd3 == "14D")
                                 {
                                     result.SubType = result.SubType + ".14D";
@@ -1528,38 +1529,6 @@ namespace ParserIO.Core
                                 {
                                     result.AdditionalInformation = result.AdditionalInformation + ";" + item;
                                 }
-                                /*
-                                switch (asd1)
-                                {
-                                    case "L": //Storage location
-                                        {
-                                            result.SubType = result.SubType + ".L";
-                                            result.StorageLocation = item.Substring(1, endData - 1);
-                                            break;
-                                        }
-                                    case "S":
-                                        {
-                                            result.SubType = result.SubType + ".S";
-                                            result.Serial = item.Substring(1, endData - 1);
-                                            break;
-                                        }
-                                }
-                                switch (asd3)
-                                {
-                                    case "14D":
-                                        {
-                                            result.SubType = result.SubType + ".14D";
-                                            result.Expiry = item.Substring(3, endData - 3);
-                                            break;
-                                        }
-                                    case "16D":
-                                        {
-                                            result.SubType = result.SubType + ".16D";
-                                            result.PRODDATE = item.Substring(3, endData - 3);
-                                            break;
-                                        }
-                                }
-                                */
                             }
                         }
                     }
